@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- div+div>p+span.name+em^span -->
+    <div></div>
+    <div>
+        <p></p>
+        <span class="name"></span><em></em>
+    </div>
+    <span></span>
+
+    <!-- (.name>span)+(.name>p) -->
+    <div class="name"><span></span></div>
+    <div class="name">
+        <p></p>
+    </div>
+    <!-- ul>.test -->
+    <ul>
+        <li class="test"></li>
+    </ul>
+    <!-- table>(tr>.item*3)*3 -->
+    <table>
+        <tr>
+            <td class="item"></td>
+            <td class="item"></td>
+            <td class="item"></td>
+        </tr>
+        <tr>
+            <td class="item"></td>
+            <td class="item"></td>
+            <td class="item"></td>
+        </tr>
+        <tr>
+            <td class="item"></td>
+            <td class="item"></td>
+            <td class="item"></td>
+        </tr>
+    </table>
+    <!-- select>.item -->
+    <select name="" id="">
+        <option class="item"></option>
+    </select>
+    <!-- table>.row>.col -->
+    <table>
+        <tr class="row">
+            <td class="col"></td>
+        </tr>
+    </table>
+    <!-- ul>.item$*3 -->
+    <ul>
+        <li class="item1"></li>
+        <li class="item2"></li>
+        <li class="item3"></li>
+    </ul>
+    <!-- ul>.item$@4*3 -->
+    <ul>
+        <li class="item4"></li>
+        <li class="item5"></li>
+        <li class="item6"></li>
+    </ul>
+    <!-- ul>.item$@-*3，vsc暂不支持 -->
+    <ul>
+        <li class="item099"></li>
+        <li class="item100"></li>
+        <li class="item101"></li>
+        <li class="item102"></li>
+    </ul>
+</body>
+</html>

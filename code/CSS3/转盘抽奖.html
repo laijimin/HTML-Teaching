@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    #outer{
+        display: block;
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        box-shadow: 0 0 10px 4px #ec1919;
+        border-radius: 100px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .inner{
+        float: left;
+        width:100px;
+        height: 100px;
+        transform-origin: right bottom;
+        
+    }
+    .inner:nth-child(1){
+        background:  rgb(108, 221, 108);
+        transform: skew(15deg,15deg);
+    }
+    .inner:nth-child(2){
+       background: rgb(228, 84, 108);
+       transform:translate(-100px) rotate(60deg) skew(15deg,15deg);
+    }
+    .inner:nth-child(3){
+        background: rgb(68, 68, 200);
+        transform:translateY(-100px) rotate(120deg) skew(15deg,15deg);
+    }
+    .inner:nth-child(4){
+        background: rgb(224, 100, 224);
+        transform:translate(-100px,-100px) rotate(180deg) skew(15deg,15deg);
+    }
+    .inner:nth-child(5){
+        background: rgb(206, 206, 54);
+        transform:translate(0px,-200px) rotate(240deg) skew(15deg,15deg);
+    }
+    .inner:nth-child(6){
+        background: rgb(61, 224, 197);
+        transform:translate(-100px,-200px) rotate(300deg) skew(15deg,15deg);
+    }
+    #outer img{
+         width: 40px;
+        height: 40px;
+        transform: skew(-15deg,-15deg) rotate(-40deg) translate(10px,80px);
+    }
+    #center{
+        width:40px;
+        height:40px;
+        color:#ec1919;
+        font-size: 32px;
+        text-align: center;
+        font-weight: bolder;
+        background: rgba(219, 152, 152,0.9);
+        border: 2px solid rgb(197, 199, 90);
+        box-shadow: 0 0 5px 6px #eee;
+        border-radius: 22px;
+        z-index: 100;
+        position: absolute;
+        left:78px;
+        top:78px;
+    }
+    #center::after{
+        clear: both;
+    }
+    #flag{
+        margin-left:85px;
+        width:0;
+        height:0;
+        border-style: solid;
+        border-width: 20px;
+        border-color:#ec1919 transparent transparent;
+        position: relative;
+        top:10px;
+    }
+    #buttons{
+        width:200px;
+        text-align: center;
+    }
+
+    </style>
+    <script>
+        var interval = null;
+        var outer = null;
+        var deg = 20;
+    window.onload = function(){
+        outer = document.getElementById("outer");
+    }
+    function hover(){
+       
+        interval = setInterval("rotate()",50);
+    }
+   
+    function rotate(){
+        outer.style.transform = "rotate(" + deg + "deg)";
+        deg += 20;
+        outer.style.transition = "all 50ms";
+    }
+    </script>
+</head>
+<body>
+    <div id="flag"></div>
+    <div id="outer">
+        
+        <div class="inner"><img src="img/redbag.png"/></div>
+        <div class="inner"><img src="img/redbag1.png"/></div>
+        <div class="inner"><img src="img/redbag2.png"/></div>
+        <div class="inner"><img src="img/redbag3.png"/></div>
+        <div class="inner"><img src="img/redbag4.png"/></div>
+        <div class="inner"><img src="img/redbag5.png"/></div>
+        <!-- <div class="inner"><img src="img/redbag.png"/></div> -->
+        <div id="center">奖</div>
+    </div>
+    
+    <br>
+    <div id="buttons">
+        <button onclick="hover()">开始抽奖</button><button  onclick="clearInterval(interval);">抽奖结束</button>
+    </div>
+</body>
+</html>
